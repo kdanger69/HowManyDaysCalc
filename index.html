@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calculate days until a date, age, date differences, week numbers, and more with our free online date tools. Perfect for planning and tracking events!">
+  <meta name="keywords" content="date calculator, days until date, age calculator, date difference, week number, leap year checker, countdown timer">
+  <meta name="author" content="Date Tools">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.yourwebsite.com/date-tools" />
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Date Tools - Calculate Days, Age, and More">
+  <meta property="og:description" content="Free online tools to calculate days until a date, age, date differences, week numbers, and more. Perfect for planning and tracking events!">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.yourwebsite.com/date-tools">
+  <meta property="og:image" content="https://www.yourwebsite.com/images/date-tools-preview.jpg">
+  <meta property="og:site_name" content="Date Tools">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Date Tools - Calculate Days, Age, and More">
+  <meta name="twitter:description" content="Free online tools to calculate days until a date, age, date differences, week numbers, and more. Perfect for planning and tracking events!">
+  <meta name="twitter:image" content="https://www.yourwebsite.com/images/date-tools-preview.jpg">
+
+  <!-- Structured Data (Schema Markup) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Date Tools",
+      "description": "Free online tools to calculate days until a date, age, date differences, week numbers, and more.",
+      "url": "https://www.yourwebsite.com/date-tools",
+      "applicationCategory": "Utilities",
+      "operatingSystem": "Web",
+      "screenshot": "https://www.yourwebsite.com/images/date-tools-screenshot.jpg",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+  </script>
+
+  <title>Date Tools - Calculate Days Until Date, Age, and More</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 22px;
+      color: #444;
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-size: 16px;
+      color: #555;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="date"] {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      width: 100%;
+      max-width: 300px;
+      transition: border-color 0.3s ease;
+    }
+
+    input[type="date"]:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+
+    .countdown {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #007bff;
+    }
+
+    .feature {
+      margin-top: 30px;
+      text-align: left;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      border: 1px solid #eee;
+    }
+
+    .feature h2 {
+      color: #007bff;
+    }
+
+    .feature p {
+      margin: 10px 0;
+      color: #555;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Date Tools</h1>
+
+    <!-- Days Until Date Calculator -->
+    <div class="feature">
+      <h2>Days Until Date Calculator</h2>
+      <label for="targetDate">Enter a target date:</label>
+      <input type="date" id="targetDate">
+      <button onclick="calculateDays()">Calculate Days</button>
+      <div class="result">
+        <p id="daysResult"></p>
+        <p id="dayOfWeek"></p>
+        <p id="weekNumber"></p>
+        <p id="leapYear"></p>
+      </div>
+      <div class="countdown">
+        <p id="countdownTimer"></p>
+      </div>
+    </div>
+
+    <!-- Age Calculator -->
+    <div class="feature">
+      <h2>Age Calculator</h2>
+      <label for="birthDate">Enter your birthdate:</label>
+      <input type="date" id="birthDate">
+      <button onclick="calculateAge()">Calculate Age</button>
+      <p id="ageResult" class="result"></p>
+    </div>
+
+    <!-- Date Difference Calculator -->
+    <div class="feature">
+      <h2>Date Difference Calculator</h2>
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate">
+      <label for="endDate">End Date:</label>
+      <input type="date" id="endDate">
+      <button onclick="calculateDateDifference()">Calculate Difference</button>
+      <p id="dateDifferenceResult" class="result"></p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>Made with ❤️ by Date Tools</p>
+    </div>
+  </div>
+
+  <script>
+    function calculateDays() {
+      const targetDateInput = document.getElementById('targetDate').value;
+      const targetDate = new Date(targetDateInput);
+      const today = new Date();
+
+      // Calculate the difference in time (milliseconds)
+      const timeDifference = targetDate - today;
+
+      // Convert time difference to days
+      const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+      // Display the result
+      const daysResult = document.getElementById('daysResult');
+      if (daysDifference > 0) {
+        daysResult.textContent = `There are ${daysDifference} days until ${targetDate.toDateString()}.`;
+      } else if (daysDifference === 0) {
+        daysResult.textContent = `Today is the target date: ${targetDate.toDateString()}.`;
+      } else {
+        daysResult.textContent = `The target date (${targetDate.toDateString()}) has already passed.`;
+      }
+
+      // Display the day of the week for the target date
+      const dayOfWeek = document.getElementById('dayOfWeek');
+      const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      dayOfWeek.textContent = `The target date falls on a ${daysOfWeek[targetDate.getDay()]}.`;
+
+      // Display the week number of the year
+      const weekNumber = document.getElementById('weekNumber');
+      const startOfYear = new Date(targetDate.getFullYear(), 0, 1);
+      const pastDaysOfYear = (targetDate - startOfYear) / 86400000;
+      weekNumber.textContent = `Week number of the year: ${Math.ceil((pastDaysOfYear + startOfYear.getDay() + 1) / 7)}`;
+
+      // Check if the target year is a leap year
+      const leapYear = document.getElementById('leapYear');
+      const year = targetDate.getFullYear();
+      const isLeapYear = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+      leapYear.textContent = `Is ${year} a leap year? ${isLeapYear ? 'Yes' : 'No'}`;
+
+      // Start the countdown timer
+      startCountdown(targetDate);
+    }
+
+    function startCountdown(targetDate) {
+      const countdownTimer = document.getElementById('countdownTimer');
+
+      function updateCountdown() {
+        const now = new Date();
+        const timeLeft = targetDate - now;
+
+        if (timeLeft > 0) {
+          const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+          countdownTimer.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        } else {
+          countdownTimer.textContent = 'Countdown finished!';
+          clearInterval(interval);
+        }
+      }
+
+      updateCountdown();
+      const interval = setInterval(updateCountdown, 1000);
+    }
+
+    // Age Calculator
+    function calculateAge() {
+      const birthDateInput = document.getElementById('birthDate').value;
+      const birthDate = new Date(birthDateInput);
+      const today = new Date();
+
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const monthDifference = today.getMonth() - birthDate.getMonth();
+      if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+
+      const ageResult = document.getElementById('ageResult');
+      ageResult.textContent = `Your age is ${age} years.`;
+    }
+
+    // Date Difference Calculator
+    function calculateDateDifference() {
+      const startDateInput = document.getElementById('startDate').value;
+      const endDateInput = document.getElementById('endDate').value;
+      const startDate = new Date(startDateInput);
+      const endDate = new Date(endDateInput);
+
+      const timeDifference = endDate - startDate;
+      const daysDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+      const dateDifferenceResult = document.getElementById('dateDifferenceResult');
+      dateDifferenceResult.textContent = `The difference between the two dates is ${daysDifference} days.`;
+    }
+  </script>
+</body>
+</html>
